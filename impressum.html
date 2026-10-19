@@ -8,7 +8,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site"><a href="/">BoulderSesh</a></header>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand-mark" href="/" aria-label="BoulderSesh home">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+          <path d="M3 22L10 8l4 7 2.2-4L23 22H3z" fill="#f25c16"/>
+        </svg>
+        Boulder<span class="sesh">Sesh</span>
+      </a>
+    </div>
+  </header>
   <main>
     <h1>Impressum</h1>
 
@@ -30,10 +39,22 @@
     <p>Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren
     vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
   </main>
-  <footer class="site">
-    <a href="/terms">Nutzungsbedingungen</a> ·
-    <a href="/privacy">Datenschutz</a> ·
-    <a href="/impressum">Impressum</a>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-brand">
+        <a class="brand-mark" href="/" aria-label="BoulderSesh home">
+          <svg width="22" height="22" viewBox="0 0 26 26" fill="none" aria-hidden="true"><path d="M3 22L10 8l4 7 2.2-4L23 22H3z" fill="#f25c16"/></svg>
+          Boulder<span class="sesh">Sesh</span>
+        </a>
+        <p>Find bouldering partners in your city. Made for people who'd rather be at the wall.</p>
+      </div>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/impressum.html">Impressum</a>
+        <a href="/delete-account.html">Delete account</a>
+      </nav>
+    </div>
   </footer>
 </body>
 </html>

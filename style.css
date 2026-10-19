@@ -1,60 +1,122 @@
-/* BoulderSesh – Rechtstexte & Landing. Bewusst schlicht: schnelle Ladezeit,
-   keine externen Ressourcen, lesbar auf dem Handy (Links werden aus der App
-   im In-App-Browser geöffnet). */
+/* BoulderSesh – Rechtstexte. Header & Footer sind identisch zur Landing-Page
+   (index.html). Palette & Fonts aus dem App-Design: Send Orange + Rock
+   neutrals, Space Grotesk / Inter / JetBrains Mono. */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap");
+
 :root {
-  --blue: #208aef;
-  --ink: #1c2733;
-  --muted: #5b6b7b;
-  --bg: #ffffff;
-  --rule: #e4eaf0;
+  /* Brand — Send Orange */
+  --brand:       #f25c16;
+  --brand-hover: #d8480a;
+  --brand-soft:  #fff4ed;
+
+  /* Rock neutrals */
+  --rock-0:   #ffffff;
+  --rock-25:  #f7f8fa;
+  --rock-100: #e6e9ee;
+  --rock-300: #b2bac6;
+  --rock-400: #8b93a3;
+  --rock-500: #646c7d;
+  --rock-700: #353b47;
+  --rock-900: #16181d;
+  --rock-950: #0e0f13;
+
+  --text-strong: var(--rock-900);
+  --text-body:   var(--rock-700);
+  --text-muted:  var(--rock-500);
+
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-ui:      "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --maxw: 1120px;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ink: #e8eef4;
-    --muted: #9fb0c0;
-    --bg: #10171f;
-    --rule: #263340;
-  }
-}
+
 * { box-sizing: border-box; }
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: var(--ink);
-  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-ui);
+  color: var(--text-body);
+  background: var(--rock-0);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
+
+a { color: var(--brand); text-underline-offset: 2px; }
+a:hover { color: var(--brand-hover); }
+
+:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; border-radius: 4px; }
+
+.wrap {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 40px);
+}
+
+/* ---------- Header (identical to landing) ---------- */
+.site-header {
+  background: rgba(247, 248, 250, 0.82);
+  backdrop-filter: saturate(140%) blur(12px);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
+  border-bottom: 1px solid var(--rock-100);
+}
+.site-header .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.brand-mark {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 19px; letter-spacing: -0.02em;
+  color: var(--text-strong); text-decoration: none;
+}
+.brand-mark svg { display: block; }
+.brand-mark .sesh { color: var(--brand); }
+
+/* ---------- Content ---------- */
 main {
+  flex: 1 0 auto;
+  width: 100%;
   max-width: 44rem;
   margin: 0 auto;
-  padding: 2rem 1.25rem 4rem;
+  padding: 2.5rem 1.25rem 4rem;
 }
-header.site {
-  border-bottom: 1px solid var(--rule);
-  padding: 1rem 1.25rem;
+h1 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.3rem); line-height: 1.15;
+  letter-spacing: -0.02em; color: var(--text-strong);
+  margin: 0 0 0.5rem;
 }
-header.site a {
-  color: var(--blue);
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.05rem;
+h2 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 1.2rem; color: var(--text-strong);
+  margin: 2.25rem 0 0.5rem;
 }
-h1 { font-size: 1.7rem; line-height: 1.25; margin: 0 0 0.25rem; }
-h2 { font-size: 1.15rem; margin: 2rem 0 0.5rem; }
-h3 { font-size: 1rem; margin: 1.5rem 0 0.25rem; }
-p.updated { color: var(--muted); font-size: 0.9rem; margin-top: 0; }
-a { color: var(--blue); }
+h3 { font-size: 1rem; color: var(--text-strong); margin: 1.5rem 0 0.25rem; }
+p.updated {
+  font-family: var(--font-mono); font-size: 0.8rem;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--text-muted); margin-top: 0;
+}
 ul { padding-left: 1.25rem; }
-footer.site {
-  border-top: 1px solid var(--rule);
-  color: var(--muted);
-  font-size: 0.9rem;
-  padding: 1.25rem;
-  text-align: center;
+.placeholder { background: var(--brand-soft); padding: 0 0.2em; border-radius: 3px; }
+
+/* ---------- Footer (identical to landing) ---------- */
+.site-footer {
+  background: var(--rock-950); color: var(--rock-300);
+  padding-block: 28px; font-size: 14px;
 }
-footer.site a { color: var(--muted); }
-.placeholder {
-  background: rgba(255, 200, 0, 0.25);
-  padding: 0 0.2em;
-  border-radius: 3px;
+.site-footer .wrap {
+  display: flex; flex-wrap: wrap; gap: 20px 48px; justify-content: space-between; align-items: center;
 }
+.foot-brand { display: flex; flex-direction: column; gap: 8px; max-width: 24rem; }
+.foot-brand .brand-mark { color: #fff; }
+.foot-brand p { margin: 0; color: var(--rock-400); line-height: 1.5; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; }
+.foot-links a { color: var(--rock-300); text-decoration: none; }
+.foot-links a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
